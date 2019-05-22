@@ -1,0 +1,19 @@
+.commentContainer {
+    width: 85%;
+    margin: 0 auto;
+}
+input {
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 50px; 
+    height: 28px;
+}
+.cont {
+    width: 85%;
+    margin: 0 auto;
+}
+
+
+.inputHolder img {
+    position: absolute;
+}
