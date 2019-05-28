@@ -8,21 +8,43 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: dummyData,
+      data: dummyData, 
     }
   }
  
+  componentDidMount() {
+    this.setState({
+      data: dummyData,
+      newData: {}
+    })
+  }
+
+  handleSearchChange = (e) => {
+    let nData = this.state.data.filter(data => data.username === e.target.value);
+    this.setState({
+        ...this.state.data,
+        newData: nData
+})
+   }
+
+   handleSearch(e) {//set state to be obj with [data, newData] only if can filter to a username
+    e.preventDefault();
+    this.setState({
+        data: ['', this.state.newData],
+        newData: {}
+    })
+}
 
   render() {
     
     return (
       <div>
-        <SearchBar />
+        <SearchBar data={this.state.data} newData={this.state.newData} handleChange={this.handleChange} handleSearch={this.handleSearch} />
         <div>
           {this.state.data.map(d => {
             return (
-              <div key={d.id}>
-                <PostContainer data={d} />
+              <div>
+                <PostContainer key={d.id} data={d} />
               </div>
             );
           })}

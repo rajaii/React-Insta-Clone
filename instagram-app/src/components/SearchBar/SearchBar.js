@@ -1,7 +1,20 @@
 import React from 'react';
 import './SearchBar.css';
 
-const SearchBar = () => {
+
+class SearchBar extends React.Component {
+    /*constructor(props) {
+          super(props);
+          this.state = {
+          data: this.props.data,
+          newData: {}
+        
+    }}*/
+
+   
+
+    render() {
+
     return (
         <div className='search'>
             <div className='frontFlex'>
@@ -10,7 +23,14 @@ const SearchBar = () => {
                 <p className='p2'>AliGram LOL</p>
             </div>
             <div className='buttonHolder'>
-                <button>Search</button>
+                <form onSubmit={this.props.handleSearch}>
+                    <input 
+                        type='text'
+                        placeholder='Search'
+                        value={this.props.newData.username}
+                        onChange={this.props.handleSearchChange}
+                    />
+                </form>
             </div>
             <div className='leftFlex'>
                 <img src='./compass-circular-variant.png' />
@@ -19,6 +39,6 @@ const SearchBar = () => {
             </div>
         </div>
     );
-}
+}}
 
 export default SearchBar;

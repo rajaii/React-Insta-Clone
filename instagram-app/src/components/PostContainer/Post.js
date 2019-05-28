@@ -13,11 +13,11 @@ const Post = (props) => {
                 <img src={props.data.imageUrl}/>
             </div>
             <div className='icon'>
-                <img src='./like.png' />
+                <img onClick={props.handleLikeClick} src='./like.png' />
                 <img src='./chat.png' />
             </div>
             <div>
-                <p>{props.data.likes} likes</p>
+                <p>{props.likes} likes</p>
             </div>
             
 
@@ -25,10 +25,10 @@ const Post = (props) => {
     );
 }
 
+
 Post.propTypes = {
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string,
+    data: PropTypes.shape({
+        id: PropTypes.string,
         username: PropTypes.string,
         thumbnailUrl: PropTypes.string,
         imageUrl: PropTypes.string,
@@ -42,7 +42,7 @@ Post.propTypes = {
             })
         )
         })
-    )
+    
 };
 
 export default Post;

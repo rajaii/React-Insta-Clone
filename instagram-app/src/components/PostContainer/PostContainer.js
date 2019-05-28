@@ -2,48 +2,37 @@ import React from 'react';
 import CommentSection from '../CommentSection/CommentSection.js';
 import Post from './Post.js';
 import './PostContainer.css';
-/*const PostContainer = (props) => {
-    return (
-        <div>
-            {props.data.map(c => {
-                return (
-                    <div>
-                        <CommentSection key={c.id} comments={c.comments} />
-                    </div>
-                );
-            })}
-        </div>
-    );
-}*/
 
-const PostContainer = (props) => {
+
+class PostContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            likes: this.props.data.likes,
+        }
+    }
+
+    handleLikeClick = () => {
+        this.setState({
+            likes: this.state.likes + 1
+        })
+    }
+
+    render() {
     return (
     <div className='cont'>
         <div>
-            <Post data={props.data} />
+            <Post data={this.props.data} likes={this.state.likes} handleLikeClick={this.handleLikeClick}/>
         </div>
         <div className='commentContainer'>
-            {props.data.comments.map(c => {
-                return (
-                    <div>
-                        <CommentSection key={c.id} comment={c} />
-                    </div>
-                );
-            })}
-            <div>
-                {Date.now()}
-            </div>
-            <div className='inputHolder'>
-                <input
-                placeholder='Add a comment...' 
-                />
-                <img src='./dotDotDot.png' />
-            </div>
+            <CommentSection username='Ali' data={this.props.data} comments={this.props.data.comments} timestamp={this.props.data.timestamp}/>
         </div>
-       
+        
+            
     </div>
+    
     );
-}
+}}
 
 
 export default PostContainer;
