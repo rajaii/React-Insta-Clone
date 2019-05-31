@@ -7,11 +7,11 @@ class SearchBar extends React.Component {
           super(props);
           this.state = {
           data: this.props.data,
-          newData: {}
+          newData: this.props.newData
         
     }}*/
 
-   
+    
 
     render() {
 
