@@ -12,23 +12,19 @@ class PostsPage extends React.Component {
           }
         }
     
-  //track input in searchbar
-  //filter input based on that srting in state
-  //set data = new filtered array
+  
+ 
 
-handleSearchChange = (e) => {//set state to be obj with [data, newData] only if can filter to a username
+handleSearchChange = (e) => {
     e.preventDefault();
-    if (this.state.newData) {
     this.setState({
-        data: this.state.newData
+        newData: e.target.value
     })
-  } else {
-    return null
-  }
+
 }
 handleSearch = (e) => {
     e.preventDefault();
-    let nData = this.state.data.filter(data => data.username === e.target.value);
+    let nData = this.state.data.filter(data => data.username === e.target.value ? data: null);
     this.setState({
         data: nData,
         newData: ''

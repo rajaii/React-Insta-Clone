@@ -2,8 +2,16 @@ import React from 'react';
 import CommentSection from '../CommentSection/CommentSection.js';
 import Post from './Post.js';
 import './PostContainer.css';
+import styled from 'styled-components';
 
-
+const Cont = styled.div`
+width: 85%;
+margin: 0 auto;
+`
+const CommentContainer = styled.div`
+    width: 85%;
+    margin: 0 auto;
+`
 class PostContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -20,16 +28,16 @@ class PostContainer extends React.Component {
 
     render() {
     return (
-    <div className='cont'>
+    <Cont>
         <div>
             <Post data={this.props.data} likes={this.state.likes} handleLikeClick={this.handleLikeClick}/>
         </div>
-        <div className='commentContainer'>
+        <CommentContainer>
             <CommentSection username='Ali' data={this.props.data} comments={this.props.data.comments} timestamp={this.props.data.timestamp}/>
-        </div>
+        </CommentContainer>
         
             
-    </div>
+    </Cont>
     
     );
 }}
