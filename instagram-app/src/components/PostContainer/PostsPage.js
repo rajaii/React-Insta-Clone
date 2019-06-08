@@ -8,7 +8,9 @@ class PostsPage extends React.Component {
         super(props);
         this.state = {
             data: dummyData, 
-            newData: '',
+            newData: {
+                username: '',
+            },
           }
         }
     
@@ -18,27 +20,31 @@ class PostsPage extends React.Component {
 handleSearchChange = (e) => {
     e.preventDefault();
     this.setState({
-        newData: e.target.value
-    })
+        data: dummyData,
+        newData: {
+            username: e.target.value,
 
+        }
+    })
+//is d.username === new username
 }
 handleSearch = (e) => {
     e.preventDefault();
-    let nData = this.state.data.filter(data => data.username === e.target.value ? data: null);
+    let nData = this.state.data.filter(data => { 
+        return data.username.includes(this.state.newData.username);
+    });
+    console.log(nData)
     this.setState({
         data: nData,
-        newData: ''
+        newData: {
+            username: ''
+        }
 })
    }
       
         
        
-    componentDidMount() {
-          this.setState({
-            data: dummyData,
-            newData: {}
-          })
-        }
+    
     
 
     render() {
