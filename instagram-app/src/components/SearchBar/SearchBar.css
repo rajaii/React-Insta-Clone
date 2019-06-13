@@ -1,0 +1,46 @@
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightblue;
+    
+}
+.buttonHolder {
+    width: 200px;
+}
+.buttonHolder button {
+    width: 100%;
+}
+button {
+    background-color: lightblue;
+    opacity: 100;
+    color: grey;
+    height: 30px;
+
+}
+img {
+    width: 30px;
+    height: 30px;
+}
+.leftFlex {
+    width: 140px;
+    display: flex;
+    justify-content: space-between;
+}
+.frontFlex  {
+    display: flex;
+    width: 200px;
+
+}
+.frontFlex img {
+    margin-top: 29px;
+    margin-right: 10px;
+}
+.frontFlex .p2 {
+    margin-left: 10px; 
+    font-family: cursive;
+    
+}
+.frontFlex p {
+    font-size: 1.5rem;
+}
